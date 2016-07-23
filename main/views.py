@@ -1,7 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from django.views.generic import View
 
 # Create your views here.
-class Prueba(View):
+class Home(View):
 		def get(self,request):
-			return HttpResponse('Hola.')
+			template_name = 'home.html'
+			user = request.user
+			return render(request, template_name, {'usuario':user})
